@@ -1,0 +1,7 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <h1>Edit/Create Category</h1>
+    <div id="section">
+       <t:beaneditform t:id="form" t:object="category">
+       </t:beaneditform>
+    </div>
+</html>

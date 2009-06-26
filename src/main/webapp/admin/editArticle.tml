@@ -1,0 +1,35 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <h1>Edit Article Properties</h1>
+    <div id="section">
+		<t:beaneditform t:id="form" t:object="article" exclude="dateCreate,pageType" add="img,img0,img1,img2,img3">
+			<t:parameter name="perex">
+	    		<t:label for="perex"/>
+	    		<t:textArea t:id="perex" value="article.perex" rows="5" />
+			</t:parameter>
+			<t:parameter name="text">
+				<t:label for="text"/>
+		    	<t:textArea t:id="text" value="article.text" class="editField" />
+			</t:parameter>
+			<t:parameter name="img">
+				<t:label for="img"/>
+		        <input t:type="upload" t:id="img" t:value="article.mainImage"/>
+			</t:parameter>
+			<t:parameter name="img0">
+				<t:label for="img0"/>
+		        <input t:type="upload" t:id="img0" t:value="article.img0"/>
+			</t:parameter>
+			<t:parameter name="img1">
+				<t:label for="img1"/>
+		        <input t:type="upload" t:id="img1" t:value="article.img1"/>
+			</t:parameter>
+			<t:parameter name="img2">
+				<t:label for="img2"/>
+		        <input t:type="upload" t:id="img2" t:value="article.img2"/>
+			</t:parameter>
+			<t:parameter name="img3">
+				<t:label for="img3"/>
+		        <input t:type="upload" t:id="img3" t:value="article.img3"/>
+			</t:parameter>
+		</t:beaneditform>
+    </div>
+</html>

@@ -1,0 +1,53 @@
+<div class="welcomePage" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<t:if test="userSigned">
+		<div class="edit-right">
+			<ul>
+				<li><t:pagelink page="admin/editWelcomePage" context="welcomePage.id">Edit page.</t:pagelink></li>
+			</ul>
+		</div>
+	</t:if>
+	<h1>${welcomePage.caption}</h1>	
+	<div class="rest">
+		<div class="image">
+			<t:if test="welcomePage.imageExists">
+		    	<img src="${base}/images/${welcomePage.image.id}.${welcomePage.image.extension}" alt=""/>
+		    	<t:parameter name="else">
+				</t:parameter>
+			</t:if>
+		</div>
+		<div class="images">
+			<h2>Novinky:</h2>
+			<t:if test="userSigned">
+				<t:pagelink page="admin/addArticle"><img src="${asset:context:/img/add.png}" /></t:pagelink>
+			</t:if>
+			<table>
+				<tr>
+					<t:loop source="articles" value="article" index="count">
+						<td class="articleLink">
+							<t:pagelink page="articlePage" context="article.url">
+								<t:if test="article.imageExists">
+									<img src="${base}/images/${article.image.id}.${article.image.extension}?w=100&amp;kar=2" alt=""/>
+								</t:if>
+							</t:pagelink>
+						</td>
+				    </t:loop>
+			    </tr>
+				<tr>
+					<t:loop source="articles" value="article" index="count">
+						<td>
+							<t:pagelink page="articlePage" context="article.url">
+									${article.caption}
+							</t:pagelink>
+						</td>
+				    </t:loop>
+			    </tr>
+		    </table>
+		</div>
+		<div class="text">
+			<t:outputRaw value="welcomePage.text" />
+		</div>
+	</div>
+	<div class="text2">
+		<t:outputRaw value="welcomePage.text2" />
+	</div>
+</div>

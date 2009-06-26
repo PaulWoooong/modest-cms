@@ -1,0 +1,17 @@
+<div class="nav-top" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<t:if test="userSigned">
+		<div class="right">
+			${userSession.user.email}
+			<t:actionlink t:id="signOut">Sign out</t:actionlink>
+		</div>
+		<div class="left">	
+			<t:pagelink page="index">Home</t:pagelink>
+			<t:pagelink page="admin/index">administration</t:pagelink>
+		</div>
+		<t:parameter name="else">
+			<div class="right">
+    	    	<t:pagelink page="admin/login">Login</t:pagelink>
+			</div>
+		</t:parameter>
+	</t:if>
+</div>

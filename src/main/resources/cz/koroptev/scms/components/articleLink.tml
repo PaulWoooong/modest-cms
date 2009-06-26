@@ -1,0 +1,18 @@
+<div class="articleLink" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<div class="img">
+		<t:if test="article.imageExists">
+			<t:pagelink page="articlePage" context="article.url">
+				<img src="${base}/images/${article.image.id}.${article.image.extension}?w=100&amp;kar=2" alt=""/>
+			</t:pagelink>
+		</t:if>
+	</div>
+	<span class="caption">
+		<t:pagelink page="articlePage" context="article.url">
+			${article.caption}
+		</t:pagelink>
+	</span>
+	<br />
+	<span>
+		<t:output format="dateFormat" value="article.dateCreate"/>
+	</span>
+</div>

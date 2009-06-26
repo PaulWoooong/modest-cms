@@ -1,0 +1,30 @@
+<html t:type="layout" t:title="page.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+	<div class="category">
+		<t:if test="userSigned">
+			<div class="edit-right">
+				<ul>
+					<li><t:pagelink page="admin/editCategoryPage" context="page.id">Edit page.</t:pagelink></li>
+				</ul>
+			</div>
+		</t:if>
+		<h1>${page.caption}</h1>	
+		<div class="text">
+			<div class="image">
+				<t:if test="page.imageExists">
+			    	<img src="${base}/images/${page.image.id}.${page.image.extension}" alt=""/>
+			    	<t:parameter name="else">
+					</t:parameter>
+				</t:if>
+			</div>
+			<t:outputRaw value="page.text" />
+		</div>
+		<div class="images">
+			<t:if test="userSigned">
+				<t:pagelink page="admin/addArticle"><img src="${asset:context:/img/add.png}" /></t:pagelink>
+			</t:if>
+		    <t:table source="articles" cols="3" value="article">
+				<t:articleLink article="article" />
+		    </t:table>
+		</div>
+	</div>
+</html>

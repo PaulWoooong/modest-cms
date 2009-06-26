@@ -1,0 +1,28 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <head>
+        <title>${title}</title>
+    </head>
+    <body>
+	<script type="text/javascript" src="${base}/js/lightbox2/prototype.js"></script>
+	<script type="text/javascript" src="${base}/js/lightbox2/scriptaculous.js?load=effects,builder"></script>
+	<script type="text/javascript" src="${base}/js/lightbox2/lightbox.js"></script>
+   	<t:header />
+    	<table id="main">
+    		<tr>
+    			<td colspan="2" id="header">
+					<t:menu />
+    			</td>
+    		</tr>
+    		<tr>
+    			<td id="body">
+			        <t:body/>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td colspan="2" id="nav-bottom">
+		            <a href="http://www.koroptev.cz">Koroptev</a> (c)
+    			</td>
+    		</tr>
+    	</table>
+    </body>
+</html>

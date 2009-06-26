@@ -1,0 +1,50 @@
+BODY, TH, TD, INPUT, h1 { font-family: Verdana, Arial, Helvetica, Sans-serif; font-size: 12px; }
+BODY,TABLE,DIV,SPAN,FORM,TR,TD,TH,IMG,A,UL,LI { margin: 0; padding: 0; border: 0; text-align: left; }
+a{ text-decoration: none; color: rgb(0,47,143); }
+a:hover{ text-decoration: underline; }
+h1{font-size:20px;}
+
+/* system navigation */
+div.nav-top{border-bottom:solid 1px #AAA9A9;font-size:13px;padding:0 10px 0 10px;}
+div.nav-top a{padding:0 5px 0 5px;}
+div.nav-top div.right{float:right;}
+td.header{text-align:center;font-size:15px;}
+
+table#main{width:770px;margin-left:auto;margin-right:auto;}
+table#main td#menu{vertical-align:top;width:180px;}
+table#main td#header{border-bottom:solid 1px #AAA9A9;}
+
+/*top menu*/
+table.menu td{vertical-align:top;color:#777777;}
+td.menuItem a{font-size:15px;color:#777777;}
+span.slash{padding: 0 10px 0 10px;}
+
+div.edit-right{float:right;}
+
+td#nav-bottom{border-top:solid 1px #AAA9A9;height:20px;}
+
+
+/* welcome page */
+div.welcomePage div.rest{float:left;width:550px;}
+div.welcomePage div.images table{width:100%;}
+
+/* category page */
+div.category div.image{float:left;}
+
+/* article details */
+div.image{margin:0 10px 10px 0;}
+div.perex{float:right;text-align:left;width:450px; font-weight:bold;}
+div.imgPreview{vertical-align:top;width:120px;float:left;}
+
+/* administration related styles */
+td#adminMenu{vertical-align:top;}
+textarea#perex{width:300px;}
+textarea#text{width:614px;height:300px;}
+DIV.t-beaneditor LABEL{
+	width:70px;display:block;float:left;text-align:right;clear:left;padding-right:3px;
+}
+
+/* components */
+div.articleLink{height:100px;}
+div.articleLink div.img{width:100px;height:100px;background-color:#dadada;float:left;}
+div.articleLink span.caption{font-weight:bold;}

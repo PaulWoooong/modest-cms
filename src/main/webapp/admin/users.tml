@@ -1,0 +1,14 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<h1>List of users</h1>
+	<p>
+        [<t:pagelink t:page="admin/editUser">Create new user</t:pagelink>]
+    </p>
+	<t:grid source="users" row="user" model="model" >
+		<t:parameter name="emailCell">
+			<t:pagelink page="admin/editUser" context="user.id">${user.email}</t:pagelink>
+		</t:parameter>
+		<t:parameter name="deleteCell">
+			<t:actionlink t:id="delete" context="user.id">Delete</t:actionlink>
+         </t:parameter>
+	</t:grid>
+</html>
