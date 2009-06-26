@@ -1,0 +1,8 @@
+<td class="menuItem" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<t:if test="menuItem.abstractPage.categoryPage">
+		<t:pagelink page="cat" context="${menuItem.abstractPage.url}">${menuItem.name}</t:pagelink>
+		<t:parameter name="else">
+			<t:pagelink page="index" context="${menuItem.abstractPage.url}">${menuItem.name}</t:pagelink>
+		</t:parameter>
+	</t:if>
+</td>

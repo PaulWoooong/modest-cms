@@ -1,0 +1,11 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <h1>Add new article</h1>
+    <div id="section">
+       <t:beaneditform t:id="form" model="model" t:object="article">
+			<t:parameter name="idCategory">
+                <!-- t:label for="idCategory" / -->
+		        <t:select value="idCategory" model="selectModel"/>
+            </t:parameter>
+       </t:beaneditform>
+    </div>
+</html>

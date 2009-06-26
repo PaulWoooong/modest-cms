@@ -1,0 +1,9 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <h1>Welcome in administration</h1>
+	<p>
+		Here you can set some over all setting.
+	</p>
+	<p>
+		majority of site adjustments can be accomplished through main page after login.
+	</p>
+</html>

@@ -1,0 +1,32 @@
+<html t:type="layout" t:title="article.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+	<t:if test="userSigned">    
+		<t:pagelink page="admin/editArticle" context="article.id">Edit article</t:pagelink>
+	</t:if>
+    <h1>${article.caption}</h1>
+    <div class="perex">
+    	<t:output format="dateFormat" value="article.dateCreate"/>
+    	<br />
+    	${article.perex}
+    </div>
+    <div class="image">
+		<t:if test="article.imageExists">
+	    	<img src="${base}/images/${article.image.id}.${article.image.extension}?w=300&amp;kar=2" alt=""/>
+	    	<t:parameter name="else">
+			</t:parameter>
+		</t:if>
+	</div>
+    <div class="gallery">
+    	<t:table source="article.images" value="image" cols="6">
+			<div class="imgPreview">
+				<a href="${base}/images/${image.id}.${image.extension}" rel="lightbox[gallery]" title="my caption">
+	    			<img src="${base}/images/${image.id}.${image.extension}?w=100&amp;kar=2" alt="image"/>
+	    		</a>
+	    	</div>
+    	</t:table>
+		<t:loop source="article.images" value="image" index="count">
+		</t:loop>
+    </div>
+    <div class="text">
+	    <t:outputRaw value="article.text" />
+    </div>
+</html>

@@ -1,0 +1,13 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <h1>Add new menu item</h1>
+    <div id="section">
+		<t:beaneditform t:id="form" t:object="menuItem">
+			<t:parameter name="type">
+				<t:radiogroup t:value="menuItem.type">
+					<input type="radio" t:type="radio" t:value="literal:1" />Welcome page 
+					<input type="radio" t:type="radio" t:value="literal:3" />Category page 
+				</t:radiogroup>
+			</t:parameter>       
+		</t:beaneditform>
+    </div>
+</html>

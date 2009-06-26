@@ -1,0 +1,36 @@
+<table class="menu" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<tr>
+		<t:loop source="menuItems" value="menuItem" index="count">
+			<t:menuElement menuItem="menuItem" />
+			<t:if test="notLast">
+				<t:if test="userSigned">
+					<td rowspan="2">
+						<span style="font-size:40px;" class="slash">/</span>
+					</td>
+			    	<t:parameter name="else">
+						<td rowspan="2">
+							<span class="slash">/</span>
+						</td>
+			    	</t:parameter>
+				</t:if>
+			</t:if>
+		</t:loop>	
+	</tr>
+	<tr>
+		<t:loop source="menuItems" value="menuItem" index="count">
+			<td>
+				<t:if test="userSigned">
+					<t:actionlink t:id="moveLeft" context="menuItem.id"><img src="${asset:context:/img/1leftarrow.png}" /></t:actionlink>
+					<t:pagelink page="admin/editMenuItem" context="menuItem.id"><img src="${asset:context:/img/edit.png}" /></t:pagelink>
+					<t:pagelink page="admin/addMenuItem"><img src="${asset:context:/img/delete.png}" /></t:pagelink>
+					<t:actionlink t:id="moveRight" context="menuItem.id"><img src="${asset:context:/img/1rightarrow.png}" /></t:actionlink>
+				</t:if>
+			</td>			
+		</t:loop>	
+		<t:if test="userSigned">
+			<td>
+				<t:pagelink page="admin/addMenuItem"><img src="${asset:context:/img/add.png}" /></t:pagelink>
+			</td>
+		</t:if>
+	</tr>
+</table>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cz.koroptev.scms.model">
+	
+    <class name="AbstractPage" table="page">
+    
+		<id name="id" column="id">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="url" length="255" unique="true" />
+		<property name="caption" length="255" />
+		<property name="title" length="255" />
+		<property name="pageType" />
+		<property name="text" length="10240" />
+		
+        <many-to-one name="image" class="Image" column="id_image"
+        	foreign-key="page_image" not-null="false"/>
+		
+		<joined-subclass name="WelcomePage" table="page_welcome">
+    	    <key column="id"/>
+			<property name="text2" length="10240" />
+	        <many-to-one name="category" class="Category" column="id_category"
+	        	foreign-key="welcome_page_category" not-null="false"/>
+    	</joined-subclass>
+		
+		<joined-subclass name="PageCategory" table="page_category">
+    	    <key column="id"/>
+	        <many-to-one name="category" class="Category" column="id_category"
+	        	foreign-key="welcome_page_category" not-null="false"/>
+    	</joined-subclass>
+    	
+		<joined-subclass name="Article" table="article">
+    	    <key column="id"/>
+			<property name="perex" length="10240" />
+			<property name="dateCreate" column="date_create" />
+	        <many-to-one name="category" class="Category" column="id_category"
+	        	foreign-key="article_category" not-null="false"/>
+	        <!-- for relation betwee article & image it use special table -->	
+		    <set name="images" table="article_image">
+		        <key column="id_article"/>
+		        <many-to-many column="id_image"
+		            class="Image"/>
+		    </set>
+    	</joined-subclass>
+    </class>
+    
+</hibernate-mapping>

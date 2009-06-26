@@ -1,0 +1,15 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <h1>Edit Category Page Properties</h1>
+    <div id="section">
+    	<t:beaneditform t:id="form" t:object="categoryPage" exclude="pageType" add="mainImage">
+			<t:parameter name="text">
+				<t:label for="text"/>
+		    	<t:textArea t:id="text" value="categoryPage.text" class="editField" />
+			</t:parameter>
+			<t:parameter name="mainImage">
+				<t:label for="mainImage"/>
+		        <input t:type="upload" t:id="mainImage" t:value="categoryPage.mainImage"/>
+			</t:parameter>
+		</t:beaneditform>
+    </div>
+</html>

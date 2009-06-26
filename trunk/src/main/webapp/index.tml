@@ -1,0 +1,36 @@
+<html t:type="layout" t:title="welcomePage.title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+<div class="welcomePage">
+	<t:if test="userSigned">
+		<div class="edit-right">
+			<ul>
+				<li><t:pagelink page="admin/editWelcomePage" context="welcomePage.id">Edit page.</t:pagelink></li>
+			</ul>
+		</div>
+	</t:if>
+	<h1>${welcomePage.caption}</h1>	
+	<div class="rest">
+		<div class="image">
+			<t:if test="welcomePage.imageExists">
+		    	<img src="${base}/images/${welcomePage.image.id}.${welcomePage.image.extension}" alt=""/>
+		    	<t:parameter name="else">
+				</t:parameter>
+			</t:if>
+		</div>
+		<div class="images">
+			<h2>Novinky:</h2>
+			<t:if test="userSigned">
+				<t:pagelink page="admin/addArticle"><img src="${asset:context:/img/add.png}" /></t:pagelink>
+			</t:if>
+		    <t:table source="articles" cols="2" value="article">
+				<t:articleLink article="article" />
+		    </t:table>
+		</div>
+		<div class="text">
+			<t:outputRaw value="welcomePage.text" />
+		</div>
+	</div>
+	<div class="text2">
+		<t:outputRaw value="welcomePage.text2" />
+	</div>
+</div>    
+</html>

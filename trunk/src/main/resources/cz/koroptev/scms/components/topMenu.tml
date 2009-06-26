@@ -1,0 +1,33 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <head>
+        <title>${message:welcome}</title>
+    </head>
+    <body>
+        <div class="nav-top">
+        	<t:if test="userSigned">
+        		${userSession.user.email}
+				<t:parameter name="else">
+		        	<t:pagelink page="admin/login">Login</t:pagelink>
+				</t:parameter>
+        	</t:if>
+        	
+        </div>
+    	
+    	<table id="main">
+    		<tr>
+    			<td colspan="2" class="header">
+					Some header
+    			</td>
+    		</tr>
+    		<tr>
+    			<td id="body">
+			        <t:body/>
+    			</td>
+    		</tr>
+    	</table>
+
+        <div class="nav-bottom">
+            Footer
+        </div>
+    </body>
+</html>
