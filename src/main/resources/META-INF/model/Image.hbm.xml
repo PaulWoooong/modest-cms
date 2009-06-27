@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 
-<hibernate-mapping package="cz.koroptev.scms.model">
+<hibernate-mapping package="cz.koroptev.mcms.model">
 
     <class name="Image" table="image">
     
