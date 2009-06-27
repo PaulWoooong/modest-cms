@@ -3,7 +3,8 @@ package cz.koroptev.mcms.util;
 import cz.koroptev.mcms.model.User;
 
 /**
- * Object that is stored in session if user is logged into system.
+ * Object that is stored in session if user is logged into system. This object
+ * id stored to user HTTP session.
  * 
  * @author jan
  * 

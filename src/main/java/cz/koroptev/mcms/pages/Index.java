@@ -2,6 +2,7 @@ package cz.koroptev.mcms.pages;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -16,6 +17,8 @@ import cz.koroptev.mcms.services.PathService;
 import cz.koroptev.mcms.services.WelcomePageService;
 
 public class Index extends UserAwareComponent {
+
+    private final static Logger logger = Logger.getLogger(Index.class);
 
     @Inject
     private PathService pathService;
@@ -42,7 +45,7 @@ public class Index extends UserAwareComponent {
 
     void onActivate(final String pageUrl) {
 	this.pageUrl = pageUrl;
-	System.out.println("pageUrl: " + pageUrl);
+	logger.debug("pageUrl: " + pageUrl);
 	AbstractPage page = pathService.getByPath(pageUrl);
 	welcomePage = welcomePageService.getById(page.getId());
     }

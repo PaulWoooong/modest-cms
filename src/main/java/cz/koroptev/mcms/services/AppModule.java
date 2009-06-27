@@ -1,5 +1,6 @@
 package cz.koroptev.mcms.services;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.hibernate.HibernateTransactionDecorator;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
@@ -31,8 +32,10 @@ import cz.koroptev.mcms.util.ImageDispatcher;
  */
 public class AppModule {
 
+    private final static Logger logger = Logger.getLogger(AppModule.class);
+
     public static void bind(ServiceBinder binder) {
-	System.out.println("bleee 2");
+	logger.debug("Binding services in app module");
 	binder.bind(AccessController.class).withId("AccessController");
 	binder.bind(ImageDispatcher.class).withId("ImageDispatcher");
 	binder.bind(ArticleService.class, ArticleServiceImpl.class);

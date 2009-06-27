@@ -1,5 +1,6 @@
 package cz.koroptev.mcms.components;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.BaseURLSource;
@@ -9,6 +10,8 @@ import cz.koroptev.mcms.util.UserSession;
 
 public class Header {
 
+    private final static Logger logger = Logger.getLogger(Header.class);
+    
     @Inject
     private BaseURLSource baseURLSource;
 
@@ -26,7 +29,7 @@ public class Header {
     }
 
     public Object onActionFromSignOut() {
-	System.out.println("sign out !!!");
+	logger.debug("sign out !!!");
 	userSession.setUserLoggedIn(false);
 	userSession = null;
 	return Index.class;

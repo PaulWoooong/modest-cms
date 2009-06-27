@@ -1,5 +1,6 @@
 package cz.koroptev.mcms.pages.admin;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
@@ -11,6 +12,8 @@ import cz.koroptev.mcms.services.UserService;
 import cz.koroptev.mcms.util.UserSession;
 
 public class Login {
+
+    private final static Logger logger = Logger.getLogger(Login.class);
 
     @Property
     private User login;
@@ -34,7 +37,7 @@ public class Login {
 	    }
 	    userSession.setUser(user);
 	    userSession.setUserLoggedIn(true);
-	    System.out.println("was sucess: " + userSession.getUser());
+	    logger.debug("was sucess: " + userSession.getUser());
 	}
 
     }

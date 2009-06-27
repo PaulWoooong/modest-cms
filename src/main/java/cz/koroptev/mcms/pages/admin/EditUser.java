@@ -1,5 +1,6 @@
 package cz.koroptev.mcms.pages.admin;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.annotations.Retain;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -13,6 +14,8 @@ import cz.koroptev.mcms.services.UserService;
  * 
  */
 public class EditUser {
+
+    private final static Logger logger = Logger.getLogger(EditUser.class);
 
     @Inject
     private UserService userService;
@@ -32,7 +35,7 @@ public class EditUser {
     }
 
     public Object onSuccess() {
-	System.out.println("on success:" + idUser + ", " + user);
+	logger.debug("on success:" + idUser + ", " + user);
 	user.setId(idUser);
 	userService.createOrUpdate(user);
 	idUser = null;

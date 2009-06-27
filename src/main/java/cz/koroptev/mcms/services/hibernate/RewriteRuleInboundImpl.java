@@ -24,7 +24,7 @@ public class RewriteRuleInboundImpl implements RewriteRuleInbound {
     private PathService pathService;
 
     public RewriteRuleInboundImpl() {
-	System.out.println("bleee 3");
+	logger.debug("bleee 3");
 	reservedRootPaths.add("/favicon");
 	reservedRootPaths.add("/assets");
 	reservedRootPaths.add("/images");
@@ -52,10 +52,10 @@ public class RewriteRuleInboundImpl implements RewriteRuleInbound {
     public Request process(Request request, URLRewriteContext context) {
 	final String path = request.getPath();
 	if ("/".equals(path)) {
-	    System.out.println("changing (2) path: " + path);
+	    logger.debug("changing (2) path: " + path);
 	    request = new SimpleRequestWrapper(request, "/index/index");
 	} else if ("/index".equals(path)) {
-	    System.out.println("chnaging (4): " + path);
+	    logger.debug("chnaging (4): " + path);
 	    request = new SimpleRequestWrapper(request, "/index/index");
 	} else if (!isReservedPath(path)) {
 	    AbstractPage abstractPage = pathService.getByPath(path);
@@ -80,7 +80,7 @@ public class RewriteRuleInboundImpl implements RewriteRuleInbound {
 		}
 	    }
 	} else {
-	    System.out.println("don't changing path: " + path);
+	    logger.debug("don't changing path: " + path);
 	}
 	return request;
     }
