@@ -13,7 +13,7 @@
 			Tapestry of where to look for pages, components and mixins.
 		-->
 		<param-name>tapestry.app-package</param-name>
-		<param-value>cz.koroptev.scms</param-value>
+		<param-value>cz.koroptev.mcms</param-value>
 	</context-param>
 	<context-param>
 		<param-name>tapestry.production-mode</param-name>
