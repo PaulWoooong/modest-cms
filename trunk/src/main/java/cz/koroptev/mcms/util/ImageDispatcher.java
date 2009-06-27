@@ -1,5 +1,6 @@
 package cz.koroptev.mcms.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -15,6 +16,18 @@ import com.jirout.common.filestore.ImageFileStoreImpl;
 import com.jirout.common.filestore.ImageResizerImpl;
 import com.jirout.common.filestore.ResizeRequest;
 
+import cz.koroptev.mcms.services.AppModule;
+
+/**
+ * Dispatcher that serve images. If image is not requested control is send to
+ * next dispatcher in chain. This chain of dispatchers is defined in master
+ * dispatcher. see
+ * {@link AppModule#contributeMasterDispatcher(org.apache.tapestry5.ioc.OrderedConfiguration, Dispatcher, Dispatcher)}
+ * for more details.
+ * 
+ * @author jan
+ * 
+ */
 public class ImageDispatcher implements Dispatcher {
 
     private final static Logger logger = Logger
@@ -34,13 +47,30 @@ public class ImageDispatcher implements Dispatcher {
 
     private ImageFileStore fileStore;
 
+    private String getParam(String paramName) {
+	String systemProp = System.getProperty(paramName);
+	if (systemProp == null || systemProp.length() == 0) {
+	    return context.getInitParameter(paramName);
+	} else {
+	    return systemProp;
+	}
+    }
+
     private void initFileStore() {
 	logger.info("inicializing Servlet Imager");
 	fileStore = new ImageFileStoreImpl();
-	fileStore.setRelativePath("WEB-INF/file-store");
-	fileStore.setAbsolutePath(context.getRealFile("/").getAbsolutePath());
-	logger.debug("initilizing image dispatcher witch base path: "
-		+ context.getRealFile("/").getAbsolutePath());
+	fileStore.setRelativePath(getParam("mcns.imageRelativePath"));
+	fileStore.setAbsolutePath(new File(getParam("mcns.dataBasePath"))
+		.getAbsolutePath());
+	logger.debug("initilizing image dispatcher witch base path: ");
+	logger.debug(new File("./").getAbsolutePath());
+	logger.debug(new File("").getAbsolutePath());
+	logger.debug(new File(".").getAbsolutePath());
+	logger.debug(new File("/").getAbsolutePath());
+	logger.debug(new File("WEB-INF/file-store").getAbsolutePath());
+	logger.debug("super: "
+		+ new File(getParam("mcns.dataBasePath")).getAbsolutePath());
+	logger.debug("pokus: " + getParam("mcns.imageRelativePath"));
 	fileStore.setImageResizer(new ImageResizerImpl());
 	ServiceProvider.setImageFileStore(fileStore);
 	try {
@@ -57,7 +87,7 @@ public class ImageDispatcher implements Dispatcher {
 	    initFileStore();
 	}
 	String path = request.getPath();
-	System.out.println("checking path: " + path);
+	logger.debug("checking path: " + path);
 	if (path.startsWith(MAPPED_PATH)) {
 
 	    FileRequest fileRequest = new FileRequest(request);

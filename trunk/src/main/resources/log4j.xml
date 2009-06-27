@@ -21,7 +21,7 @@
         </layout>
     </appender>
 	
-    <category name="cz.koroptev.tapestry.pages">
+    <category name="cz.koroptev.mcms">
 		<param name="additivity" value="false" />
         <priority value="debug" />
 		<appender-ref ref="console" />

@@ -2,6 +2,7 @@ package cz.koroptev.mcms.util;
 
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.runtime.Component;
 import org.apache.tapestry5.services.ApplicationStateManager;
 import org.apache.tapestry5.services.ComponentClassResolver;
@@ -11,6 +12,10 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.Response;
 
 public class AccessController implements Dispatcher {
+
+    private final static Logger logger = Logger
+	    .getLogger(AccessController.class);
+
     private final static String LOGIN_PAGE = "/login";
 
     private ApplicationStateManager asm;
@@ -66,11 +71,11 @@ public class AccessController implements Dispatcher {
 
 	if (privatePage) {
 	    canAccess = false;
-	    System.out.println("checking: " + page.getClass());
+	    logger.debug("checking: " + page.getClass());
 	    /* Is the user already authentified ? */
 	    if (asm.exists(UserSession.class)) {
 		UserSession userSession = asm.get(UserSession.class);
-		System.out.println("we have user session: "
+		logger.debug("we have user session: "
 			+ userSession.isUserLoggedIn());
 		canAccess = userSession.isUserLoggedIn();
 	    }

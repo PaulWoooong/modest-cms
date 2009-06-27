@@ -1,5 +1,6 @@
 package cz.koroptev.mcms.pages.admin;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.annotations.Retain;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -14,6 +15,8 @@ import cz.koroptev.mcms.services.MenuItemService;
  * 
  */
 public class EditMenuItem {
+
+    private final static Logger logger = Logger.getLogger(EditMenuItem.class);
 
     @Inject
     private MenuItemService menuItemService;
@@ -33,7 +36,8 @@ public class EditMenuItem {
     }
 
     public Object onSuccess() {
-	System.out.println("on success:" + idCategory + ", " + menuItem + ", " + menuItem.getName());
+	logger.debug("on success:" + idCategory + ", " + menuItem + ", "
+		+ menuItem.getName());
 	menuItem.setId(idCategory);
 	idCategory = 0;
 	menuItemService.createOrUpdate(menuItem);

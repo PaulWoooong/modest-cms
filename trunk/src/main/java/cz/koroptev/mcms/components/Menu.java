@@ -2,6 +2,7 @@ package cz.koroptev.mcms.components;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import cz.koroptev.mcms.base.UserAwareComponent;
@@ -11,6 +12,8 @@ import cz.koroptev.mcms.services.MenuItemService;
 
 public class Menu extends UserAwareComponent {
 
+    private final static Logger logger = Logger.getLogger(Menu.class);
+    
     @Inject
     private MenuItemService menuItemService;
 
@@ -41,13 +44,13 @@ public class Menu extends UserAwareComponent {
     }
 
     public Object onActionFromMoveRight(Integer idMenuItem) {
-	System.out.println("Moving right");
+	logger.debug("Moving right");
 	menuItemService.moveRight(idMenuItem);
 	return Index.class;
     }
 
     public Object onActionFromMoveLeft(Integer idMenuItem) {
-	System.out.println("Moving left");
+	logger.debug("Moving left");
 	menuItemService.moveLeft(idMenuItem);
 	return Index.class;
     }

@@ -1,5 +1,6 @@
 package cz.koroptev.mcms.pages.admin;
 
+import org.apache.log4j.Logger;
 import org.apache.tapestry5.annotations.Retain;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -13,6 +14,8 @@ import cz.koroptev.mcms.services.CategoryService;
  * 
  */
 public class EditCategory {
+
+    private final static Logger logger = Logger.getLogger(EditCategory.class);
 
     @Inject
     private CategoryService categoryService;
@@ -32,7 +35,7 @@ public class EditCategory {
     }
 
     public Object onSuccess() {
-	System.out.println("on success:" + idCategory + ", " + category);
+	logger.debug("on success:" + idCategory + ", " + category);
 	category.setId(idCategory);
 	idCategory = 0;
 	categoryService.createOrUpdate(category);

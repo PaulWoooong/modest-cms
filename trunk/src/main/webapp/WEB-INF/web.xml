@@ -7,6 +7,9 @@
 		Simple content management system
 	</description>
 	<display-name>Simple CMS</display-name>
+	<!-- 
+		tapestry5 configuration
+	-->
 	<context-param>
 		<!--
 			The only significant configuration for Tapestry 5, this informs
@@ -22,6 +25,18 @@
 	<context-param>
 		<param-name>tapestry.charset</param-name>
 		<param-value>UTF-8</param-value>
+	</context-param>
+	<!-- 
+		custom application configuration, configuration here can be override by system property.
+	-->
+	<context-param>
+		<param-name>mcns.dataBasePath</param-name>
+		<!-- if it's empty project root will be taken -->
+		<param-value>src/main/webapp</param-value>
+	</context-param>
+	<context-param>
+		<param-name>mcns.imageRelativePath</param-name>
+		<param-value>WEB-INF/file-store</param-value>
 	</context-param>
 	
 	<filter>
