@@ -63,4 +63,26 @@ public class PathServiceImpl implements PathService {
 	}
     }
 
+    @SuppressWarnings("unchecked")
+    public List<AbstractPage> getAll() {
+	try {
+	    return session.createCriteria(AbstractPage.class).list();
+	} catch (HibernateException e) {
+	    logger.error(e.getMessage(), e);
+	    throw new ScmException(e.getMessage(), e);
+	}
+    }
+
+    public void delete(Integer id) {
+	AbstractPage obj = getById(id);
+	if (obj != null) {
+	    try {
+		session.delete(obj);
+	    } catch (HibernateException e) {
+		logger.error(e.getMessage(), e);
+		throw new ScmException(e.getMessage(), e);
+	    }
+	}
+    }
+
 }
