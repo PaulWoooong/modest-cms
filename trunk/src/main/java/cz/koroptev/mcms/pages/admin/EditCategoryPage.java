@@ -11,10 +11,10 @@ import org.apache.tapestry5.internal.OptionModelImpl;
 import org.apache.tapestry5.internal.SelectModelImpl;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import cz.koroptev.mcms.entities.Category;
+import cz.koroptev.mcms.entities.Image;
+import cz.koroptev.mcms.entities.PageCategory;
 import cz.koroptev.mcms.form.CategoryPageForm;
-import cz.koroptev.mcms.model.Category;
-import cz.koroptev.mcms.model.Image;
-import cz.koroptev.mcms.model.PageCategory;
 import cz.koroptev.mcms.services.CategoryService;
 import cz.koroptev.mcms.services.ImageService;
 import cz.koroptev.mcms.services.PageCategoryService;

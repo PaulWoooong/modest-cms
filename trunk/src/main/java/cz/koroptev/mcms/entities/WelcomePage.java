@@ -1,4 +1,4 @@
-package cz.koroptev.mcms.model;
+package cz.koroptev.mcms.entities;
 
 /**
  * Page doesn't contains anything special, just show it's text and image.

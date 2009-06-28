@@ -1,6 +1,6 @@
 package cz.koroptev.mcms.services.impl;
 
-import cz.koroptev.mcms.model.User;
+import cz.koroptev.mcms.entities.User;
 import cz.koroptev.mcms.services.UserService;
 
 /**

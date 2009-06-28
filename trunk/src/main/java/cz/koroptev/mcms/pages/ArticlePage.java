@@ -7,9 +7,9 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import cz.koroptev.mcms.base.UserAwareComponent;
-import cz.koroptev.mcms.model.AbstractPage;
-import cz.koroptev.mcms.model.Article;
-import cz.koroptev.mcms.model.Image;
+import cz.koroptev.mcms.entities.AbstractPage;
+import cz.koroptev.mcms.entities.Article;
+import cz.koroptev.mcms.entities.Image;
 import cz.koroptev.mcms.services.ArticleService;
 import cz.koroptev.mcms.services.PathService;
 

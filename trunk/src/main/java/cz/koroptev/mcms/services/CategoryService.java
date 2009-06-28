@@ -2,7 +2,7 @@ package cz.koroptev.mcms.services;
 
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 
-import cz.koroptev.mcms.model.Category;
+import cz.koroptev.mcms.entities.Category;
 
 /**
  * 

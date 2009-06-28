@@ -3,7 +3,7 @@ package cz.koroptev.mcms.components;
 import org.apache.tapestry5.annotations.Parameter;
 
 import cz.koroptev.mcms.base.UserAwareComponent;
-import cz.koroptev.mcms.model.MenuItem;
+import cz.koroptev.mcms.entities.MenuItem;
 
 public class MenuElement extends UserAwareComponent {
 

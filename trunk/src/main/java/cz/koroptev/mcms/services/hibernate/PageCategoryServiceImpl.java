@@ -1,6 +1,6 @@
 package cz.koroptev.mcms.services.hibernate;
 
-import cz.koroptev.mcms.model.PageCategory;
+import cz.koroptev.mcms.entities.PageCategory;
 import cz.koroptev.mcms.services.PageCategoryService;
 
 public class PageCategoryServiceImpl extends

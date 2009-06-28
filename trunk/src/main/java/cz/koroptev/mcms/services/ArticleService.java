@@ -6,7 +6,7 @@ import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 
 import com.jirout.common.Chunk;
 
-import cz.koroptev.mcms.model.Article;
+import cz.koroptev.mcms.entities.Article;
 
 /**
  * 

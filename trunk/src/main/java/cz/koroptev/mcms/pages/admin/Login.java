@@ -7,7 +7,7 @@ import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-import cz.koroptev.mcms.model.User;
+import cz.koroptev.mcms.entities.User;
 import cz.koroptev.mcms.services.UserService;
 import cz.koroptev.mcms.util.UserSession;
 

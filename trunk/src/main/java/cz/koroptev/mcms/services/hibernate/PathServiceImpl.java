@@ -8,7 +8,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import cz.koroptev.mcms.model.AbstractPage;
+import cz.koroptev.mcms.entities.AbstractPage;
 import cz.koroptev.mcms.services.PathService;
 import cz.koroptev.mcms.util.ScmException;
 

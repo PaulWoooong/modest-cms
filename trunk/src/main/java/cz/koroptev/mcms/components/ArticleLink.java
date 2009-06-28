@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import org.apache.tapestry5.annotations.Parameter;
 
 import cz.koroptev.mcms.base.UserAwareComponent;
-import cz.koroptev.mcms.model.Article;
+import cz.koroptev.mcms.entities.Article;
 
 /**
  * Template for welcome page.

@@ -6,7 +6,6 @@ import java.io.OutputStream;
 
 import org.apache.log4j.Logger;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.services.Context;
 import org.apache.tapestry5.services.Dispatcher;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.Response;
@@ -17,6 +16,7 @@ import com.jirout.common.filestore.ImageResizerImpl;
 import com.jirout.common.filestore.ResizeRequest;
 
 import cz.koroptev.mcms.services.AppModule;
+import cz.koroptev.mcms.services.ConfigurationService;
 
 /**
  * Dispatcher that serve images. If image is not requested control is send to
@@ -43,25 +43,17 @@ public class ImageDispatcher implements Dispatcher {
     private final String MAPPED_PATH = "/images";
 
     @Inject
-    private Context context;
+    private ConfigurationService configurationService;
 
     private ImageFileStore fileStore;
-
-    private String getParam(String paramName) {
-	String systemProp = System.getProperty(paramName);
-	if (systemProp == null || systemProp.length() == 0) {
-	    return context.getInitParameter(paramName);
-	} else {
-	    return systemProp;
-	}
-    }
 
     private void initFileStore() {
 	logger.info("inicializing Servlet Imager");
 	fileStore = new ImageFileStoreImpl();
-	fileStore.setRelativePath(getParam("mcns.imageRelativePath"));
-	fileStore.setAbsolutePath(new File(getParam("mcns.dataBasePath"))
-		.getAbsolutePath());
+	fileStore.setRelativePath(configurationService
+		.getProperty("mcns.imageRelativePath"));
+	fileStore.setAbsolutePath(new File(configurationService
+		.getProperty("mcns.dataBasePath")).getAbsolutePath());
 	logger.debug("initilizing image dispatcher witch base path: ");
 	logger.debug(new File("./").getAbsolutePath());
 	logger.debug(new File("").getAbsolutePath());
@@ -69,8 +61,10 @@ public class ImageDispatcher implements Dispatcher {
 	logger.debug(new File("/").getAbsolutePath());
 	logger.debug(new File("WEB-INF/file-store").getAbsolutePath());
 	logger.debug("super: "
-		+ new File(getParam("mcns.dataBasePath")).getAbsolutePath());
-	logger.debug("pokus: " + getParam("mcns.imageRelativePath"));
+		+ new File(configurationService
+			.getProperty("mcns.dataBasePath")).getAbsolutePath());
+	logger.debug("pokus: "
+		+ configurationService.getProperty("mcns.imageRelativePath"));
 	fileStore.setImageResizer(new ImageResizerImpl());
 	ServiceProvider.setImageFileStore(fileStore);
 	try {

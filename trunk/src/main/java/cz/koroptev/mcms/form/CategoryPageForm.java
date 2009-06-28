@@ -4,10 +4,10 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.beaneditor.NonVisual;
 import org.apache.tapestry5.upload.services.UploadedFile;
 
-import cz.koroptev.mcms.model.Category;
-import cz.koroptev.mcms.model.Image;
-import cz.koroptev.mcms.model.PageCategory;
-import cz.koroptev.mcms.model.WelcomePage;
+import cz.koroptev.mcms.entities.Category;
+import cz.koroptev.mcms.entities.Image;
+import cz.koroptev.mcms.entities.PageCategory;
+import cz.koroptev.mcms.entities.WelcomePage;
 
 public class CategoryPageForm {
 

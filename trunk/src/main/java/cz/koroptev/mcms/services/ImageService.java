@@ -3,7 +3,7 @@ package cz.koroptev.mcms.services;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.upload.services.UploadedFile;
 
-import cz.koroptev.mcms.model.Image;
+import cz.koroptev.mcms.entities.Image;
 
 /**
  * 

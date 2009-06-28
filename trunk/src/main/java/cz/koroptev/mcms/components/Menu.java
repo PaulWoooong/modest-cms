@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import cz.koroptev.mcms.base.UserAwareComponent;
-import cz.koroptev.mcms.model.MenuItem;
+import cz.koroptev.mcms.entities.MenuItem;
 import cz.koroptev.mcms.pages.Index;
 import cz.koroptev.mcms.services.MenuItemService;
 

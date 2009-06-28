@@ -1,6 +1,6 @@
 package cz.koroptev.mcms.services.impl;
 
-import cz.koroptev.mcms.model.Category;
+import cz.koroptev.mcms.entities.Category;
 import cz.koroptev.mcms.services.CategoryService;
 
 /**

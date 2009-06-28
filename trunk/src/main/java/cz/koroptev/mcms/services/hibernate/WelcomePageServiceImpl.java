@@ -1,6 +1,6 @@
 package cz.koroptev.mcms.services.hibernate;
 
-import cz.koroptev.mcms.model.WelcomePage;
+import cz.koroptev.mcms.entities.WelcomePage;
 import cz.koroptev.mcms.services.WelcomePageService;
 
 public class WelcomePageServiceImpl extends
