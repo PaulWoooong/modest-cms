@@ -12,8 +12,8 @@ import org.apache.tapestry5.internal.SelectModelImpl;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.BeanModelSource;
 
-import cz.koroptev.mcms.model.Article;
-import cz.koroptev.mcms.model.Category;
+import cz.koroptev.mcms.entities.Article;
+import cz.koroptev.mcms.entities.Category;
 import cz.koroptev.mcms.pages.Index;
 import cz.koroptev.mcms.services.ArticleService;
 import cz.koroptev.mcms.services.CategoryService;

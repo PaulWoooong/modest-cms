@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Restrictions;
 
-import cz.koroptev.mcms.model.User;
+import cz.koroptev.mcms.entities.User;
 import cz.koroptev.mcms.services.UserService;
 import cz.koroptev.mcms.util.ScmException;
 

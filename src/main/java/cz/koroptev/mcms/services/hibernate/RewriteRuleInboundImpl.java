@@ -9,7 +9,7 @@ import org.apache.tapestry5.urlrewriter.RewriteRuleApplicability;
 import org.apache.tapestry5.urlrewriter.SimpleRequestWrapper;
 import org.apache.tapestry5.urlrewriter.URLRewriteContext;
 
-import cz.koroptev.mcms.model.AbstractPage;
+import cz.koroptev.mcms.entities.AbstractPage;
 import cz.koroptev.mcms.services.PathService;
 import cz.koroptev.mcms.services.RewriteRuleInbound;
 

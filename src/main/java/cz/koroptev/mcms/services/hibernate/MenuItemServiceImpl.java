@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Order;
 
-import cz.koroptev.mcms.model.MenuItem;
+import cz.koroptev.mcms.entities.MenuItem;
 import cz.koroptev.mcms.services.MenuItemService;
 import cz.koroptev.mcms.util.ScmException;
 

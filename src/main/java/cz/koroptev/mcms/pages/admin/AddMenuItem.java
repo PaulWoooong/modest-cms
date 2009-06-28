@@ -2,10 +2,10 @@ package cz.koroptev.mcms.pages.admin;
 
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import cz.koroptev.mcms.entities.MenuItem;
+import cz.koroptev.mcms.entities.PageCategory;
+import cz.koroptev.mcms.entities.WelcomePage;
 import cz.koroptev.mcms.form.CreateMenuItem;
-import cz.koroptev.mcms.model.MenuItem;
-import cz.koroptev.mcms.model.PageCategory;
-import cz.koroptev.mcms.model.WelcomePage;
 import cz.koroptev.mcms.pages.Index;
 import cz.koroptev.mcms.services.MenuItemService;
 import cz.koroptev.mcms.services.PageCategoryService;

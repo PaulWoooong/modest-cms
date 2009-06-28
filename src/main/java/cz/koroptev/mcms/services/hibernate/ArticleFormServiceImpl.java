@@ -2,9 +2,9 @@ package cz.koroptev.mcms.services.hibernate;
 
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import cz.koroptev.mcms.entities.Article;
+import cz.koroptev.mcms.entities.Image;
 import cz.koroptev.mcms.form.ArticleForm;
-import cz.koroptev.mcms.model.Article;
-import cz.koroptev.mcms.model.Image;
 import cz.koroptev.mcms.services.ArticleFormService;
 import cz.koroptev.mcms.services.ArticleService;
 import cz.koroptev.mcms.services.ImageService;

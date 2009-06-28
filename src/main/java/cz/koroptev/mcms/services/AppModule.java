@@ -1,6 +1,7 @@
 package cz.koroptev.mcms.services;
 
 import org.apache.log4j.Logger;
+import org.apache.tapestry5.hibernate.HibernateConfigurer;
 import org.apache.tapestry5.hibernate.HibernateTransactionDecorator;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
@@ -12,6 +13,9 @@ import org.apache.tapestry5.urlrewriter.URLRewriterRule;
 import cz.koroptev.mcms.services.hibernate.ArticleFormServiceImpl;
 import cz.koroptev.mcms.services.hibernate.ArticleServiceImpl;
 import cz.koroptev.mcms.services.hibernate.CategoryServiceImpl;
+import cz.koroptev.mcms.services.hibernate.ConfigurationServiceImpl;
+import cz.koroptev.mcms.services.hibernate.CustomHibernateConfigurer;
+import cz.koroptev.mcms.services.hibernate.CustomHibernateConfigurerImpl;
 import cz.koroptev.mcms.services.hibernate.ImageServiceImpl;
 import cz.koroptev.mcms.services.hibernate.MenuItemServiceImpl;
 import cz.koroptev.mcms.services.hibernate.PageCategoryServiceImpl;
@@ -37,20 +41,23 @@ public class AppModule {
     public static void bind(ServiceBinder binder) {
 	logger.debug("Binding services in app module");
 	binder.bind(AccessController.class).withId("AccessController");
-	binder.bind(ImageDispatcher.class).withId("ImageDispatcher");
-	binder.bind(ArticleService.class, ArticleServiceImpl.class);
 	binder.bind(ArticleFormService.class, ArticleFormServiceImpl.class);
-	binder.bind(UserService.class, UserServiceImpl.class);
+	binder.bind(ArticleService.class, ArticleServiceImpl.class);
 	binder.bind(CategoryService.class, CategoryServiceImpl.class);
+	binder.bind(ConfigurationService.class, ConfigurationServiceImpl.class);
+	binder.bind(CustomHibernateConfigurer.class,
+		CustomHibernateConfigurerImpl.class);
+	binder.bind(ImageDispatcher.class).withId("ImageDispatcher");
 	binder.bind(ImageService.class, ImageServiceImpl.class);
 	binder.bind(MenuItemService.class, MenuItemServiceImpl.class);
 	binder.bind(PageCategoryService.class, PageCategoryServiceImpl.class);
+	binder.bind(PathService.class, PathServiceImpl.class);
 	binder.bind(RewriteRuleInbound.class, RewriteRuleInboundImpl.class);
 	binder.bind(RewriteRuleOutbound.class, RewriteRuleOutboundImpl.class);
-	binder.bind(WelcomePageService.class, WelcomePageServiceImpl.class);
+	binder.bind(UserService.class, UserServiceImpl.class);
 	binder.bind(WelcomePageFormService.class,
 		WelcomePageFormServiceImpl.class);
-	binder.bind(PathService.class, PathServiceImpl.class);
+	binder.bind(WelcomePageService.class, WelcomePageServiceImpl.class);
     }
 
     public static void contributeURLRewriter(
@@ -86,6 +93,12 @@ public class AppModule {
 	 * Decorate all services with Hibernate transaction support.
 	 */
 	return decorator.build(serviceInterface, delegate, serviceId);
+    }
+
+    public static void contributeHibernateSessionSource(
+	    OrderedConfiguration<HibernateConfigurer> config,
+	    @InjectService("CustomHibernateConfigurer") CustomHibernateConfigurer hibernateConfigurer) {
+	config.add("customConfiguration", hibernateConfigurer, "after:default");
     }
 
 }

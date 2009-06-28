@@ -8,7 +8,7 @@ import org.apache.tapestry5.upload.services.UploadedFile;
 
 import com.jirout.common.FileUtils;
 
-import cz.koroptev.mcms.model.Image;
+import cz.koroptev.mcms.entities.Image;
 import cz.koroptev.mcms.services.ImageService;
 import cz.koroptev.mcms.util.ScmException;
 import cz.koroptev.mcms.util.ServiceProvider;

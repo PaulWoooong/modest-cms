@@ -1,4 +1,4 @@
-package cz.koroptev.mcms.model;
+package cz.koroptev.mcms.entities;
 
 import org.apache.tapestry5.beaneditor.NonVisual;
 import org.apache.tapestry5.beaneditor.Validate;

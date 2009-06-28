@@ -9,9 +9,9 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import com.jirout.common.Chunk;
 
 import cz.koroptev.mcms.base.UserAwareComponent;
-import cz.koroptev.mcms.model.AbstractPage;
-import cz.koroptev.mcms.model.Article;
-import cz.koroptev.mcms.model.PageCategory;
+import cz.koroptev.mcms.entities.AbstractPage;
+import cz.koroptev.mcms.entities.Article;
+import cz.koroptev.mcms.entities.PageCategory;
 import cz.koroptev.mcms.services.ArticleService;
 import cz.koroptev.mcms.services.PageCategoryService;
 import cz.koroptev.mcms.services.PathService;

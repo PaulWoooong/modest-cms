@@ -1,6 +1,6 @@
 package cz.koroptev.mcms.util;
 
-import cz.koroptev.mcms.model.User;
+import cz.koroptev.mcms.entities.User;
 
 /**
  * Object that is stored in session if user is logged into system. This object

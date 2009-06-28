@@ -7,9 +7,9 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.beaneditor.NonVisual;
 import org.apache.tapestry5.upload.services.UploadedFile;
 
-import cz.koroptev.mcms.model.Article;
-import cz.koroptev.mcms.model.Category;
-import cz.koroptev.mcms.model.Image;
+import cz.koroptev.mcms.entities.Article;
+import cz.koroptev.mcms.entities.Category;
+import cz.koroptev.mcms.entities.Image;
 
 /**
  * Class that simplify editing of article in one form. With images.

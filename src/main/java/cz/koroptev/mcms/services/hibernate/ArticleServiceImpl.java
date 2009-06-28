@@ -8,7 +8,7 @@ import org.hibernate.criterion.Order;
 
 import com.jirout.common.Chunk;
 
-import cz.koroptev.mcms.model.Article;
+import cz.koroptev.mcms.entities.Article;
 import cz.koroptev.mcms.services.ArticleService;
 import cz.koroptev.mcms.util.ScmException;
 

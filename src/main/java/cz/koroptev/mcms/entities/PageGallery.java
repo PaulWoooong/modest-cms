@@ -1,4 +1,4 @@
-package cz.koroptev.mcms.model;
+package cz.koroptev.mcms.entities;
 
 /**
  * Core page, representing something like article with gallery.

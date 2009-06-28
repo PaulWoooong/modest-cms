@@ -7,7 +7,7 @@ import org.apache.tapestry5.beaneditor.BeanModel;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.BeanModelSource;
 
-import cz.koroptev.mcms.model.User;
+import cz.koroptev.mcms.entities.User;
 import cz.koroptev.mcms.services.UserService;
 
 /**

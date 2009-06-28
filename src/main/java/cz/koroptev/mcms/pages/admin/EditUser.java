@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.tapestry5.annotations.Retain;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-import cz.koroptev.mcms.model.User;
+import cz.koroptev.mcms.entities.User;
 import cz.koroptev.mcms.services.UserService;
 
 /**
