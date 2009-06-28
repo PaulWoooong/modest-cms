@@ -31,6 +31,9 @@ public class MenuItemServiceImpl extends
     public void create(MenuItem entity) {
 	Integer max = (Integer) getSession().createQuery(
 		"select max(priority) from MenuItem").list().get(0);
+	if (max == null) {
+	    max = 0;
+	}
 	max += 1;
 	entity.setPriority(max);
 	super.create(entity);

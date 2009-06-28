@@ -1,0 +1,11 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<h1>List of pages and articles.</h1>
+	<t:grid source="pages" row="page" model="model" exclude="id,text,fullUrl">
+		<t:parameter name="nameCell">
+			<t:pagelink page="admin/editCategory" context="page.id">${page.title}</t:pagelink>
+		</t:parameter>
+		<t:parameter name="deleteCell">
+			<t:actionlink t:id="delete" context="page.id">Delete</t:actionlink>
+         </t:parameter>
+	</t:grid>
+</html>

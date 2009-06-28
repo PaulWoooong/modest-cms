@@ -43,6 +43,7 @@ tinyMCE.init({
     					<li><t:pagelink page="admin/index">Home</t:pagelink></li>
     					<li><t:pagelink page="admin/users">Users</t:pagelink></li>
     					<li><t:pagelink page="admin/categories">Categories</t:pagelink></li>
+    					<li><t:pagelink page="admin/pages">pages</t:pagelink></li>
     				</ul>
     			</td>
     			<td id="body">
