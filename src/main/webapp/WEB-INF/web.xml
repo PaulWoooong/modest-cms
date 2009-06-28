@@ -26,6 +26,39 @@
 		<param-name>tapestry.charset</param-name>
 		<param-value>UTF-8</param-value>
 	</context-param>
+	<context-param>
+		<param-name>tapestry.hibernate.early-startup</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>tapestry.hibernate.default-configuration</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	
+	<!-- 
+		hibernate application configuration
+	-->
+	<context-param>
+		<param-name>hibernate.connection.driver_class</param-name>
+		<param-value>com.mysql.jdbc.Driver</param-value>
+	</context-param>
+	<context-param>
+		<param-name>hibernate.dialect</param-name>
+		<param-value>org.hibernate.dialect.MySQLInnoDBDialect</param-value>
+	</context-param>
+	<context-param>
+		<param-name>hibernate.connection.url</param-name>
+		<param-value>jdbc:mysql://localhost:3306/mcms</param-value>
+	</context-param>
+	<context-param>
+		<param-name>hibernate.connection.username</param-name>
+		<param-value>root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>hibernate.connection.password</param-name>
+		<param-value>ok</param-value>
+	</context-param>
+	
 	<!-- 
 		custom application configuration, configuration here can be override by system property.
 	-->
