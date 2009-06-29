@@ -3,6 +3,8 @@ package cz.koroptev.mcms.entities;
 import java.util.Date;
 import java.util.Set;
 
+import org.apache.tapestry5.beaneditor.NonVisual;
+
 /**
  * Represents one article or gallery.
  * 
@@ -23,6 +25,7 @@ public class Article extends AbstractPage {
      */
     private Set<Image> images;
 
+    @NonVisual	
     private Date dateCreate;
 
     public String getPerex() {

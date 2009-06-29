@@ -7,5 +7,22 @@
 		<t:parameter name="deleteCell">
 			<t:actionlink t:id="delete" context="page.id">Delete</t:actionlink>
          </t:parameter>
+		<t:parameter name="pageTypeCell">
+			<t:delegate to="viewBlock"/>
+	        <t:block t:id="showWelcomePage">
+	            ${message:showWelcomePage}
+	        </t:block>
+	        <t:block t:id="showArticle">
+	            ${message:showArticle}
+	        </t:block>
+	        <t:block t:id="showCategoryPage">
+	            ${message:showCategoryPage}
+	        </t:block>
+        </t:parameter>
+		<t:parameter name="viewCell">
+			<t:pagelink page="prop:page.viewPage" context="page.url">
+				View &amp; Edit
+			</t:pagelink>			
+        </t:parameter>
 	</t:grid>
 </html>
