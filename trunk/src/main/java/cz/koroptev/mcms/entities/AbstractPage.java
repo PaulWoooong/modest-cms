@@ -52,6 +52,7 @@ public class AbstractPage implements SingleIdObject {
 	this.caption = caption;
     }
 
+    @NonVisual
     public String getFullUrl() {
 	if (pageType != null && pageType == 1) {
 	    return url;
@@ -60,10 +61,30 @@ public class AbstractPage implements SingleIdObject {
 	}
     }
 
+    @NonVisual
+    public String getViewPage() {
+	if (pageType == null) {
+	    return url;
+	} else {
+	    switch (pageType) {
+	    case 1:
+		return "index";
+	    case 2:
+		return "articlePage";
+	    case 3:
+		return "cat";
+	    default:
+		return null;
+	    }
+	}
+    }
+
+    @NonVisual
     public boolean isCategoryPage() {
 	return pageType != null && pageType == 3;
     }
 
+    @NonVisual
     public boolean isImageExists() {
 	return image != null;
     }

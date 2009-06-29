@@ -1,0 +1,6 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<t:block id="category">
+    <t:label for="category"/>
+    <t:select t:id="category" t:model="categories" />
+</t:block>
+</html>

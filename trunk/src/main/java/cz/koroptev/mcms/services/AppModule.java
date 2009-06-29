@@ -3,13 +3,17 @@ package cz.koroptev.mcms.services;
 import org.apache.log4j.Logger;
 import org.apache.tapestry5.hibernate.HibernateConfigurer;
 import org.apache.tapestry5.hibernate.HibernateTransactionDecorator;
+import org.apache.tapestry5.ioc.Configuration;
+import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.ioc.annotations.InjectService;
 import org.apache.tapestry5.ioc.annotations.Match;
+import org.apache.tapestry5.services.BeanBlockContribution;
 import org.apache.tapestry5.services.Dispatcher;
 import org.apache.tapestry5.urlrewriter.URLRewriterRule;
 
+import cz.koroptev.mcms.entities.Category;
 import cz.koroptev.mcms.services.hibernate.ArticleFormServiceImpl;
 import cz.koroptev.mcms.services.hibernate.ArticleServiceImpl;
 import cz.koroptev.mcms.services.hibernate.CategoryServiceImpl;
@@ -60,6 +64,34 @@ public class AppModule {
 	binder.bind(WelcomePageService.class, WelcomePageServiceImpl.class);
     }
 
+    /**
+     * Tells tapestry about additional field editors.
+     * 
+     * @param configuration
+     */
+    public static void contributeDefaultDataTypeAnalyzer(
+	    MappedConfiguration<Class<? extends Object>, String> configuration) {
+	configuration.add(Category.class, "category");
+    }
+
+    /**
+     * Notify bean edit form about additional property editor.
+     * 
+     * @param configuration
+     */
+    public static void contributeBeanBlockSource(
+	    Configuration<BeanBlockContribution> configuration) {
+	configuration.add(new BeanBlockContribution("category",
+		"CategoryEditBlocks", "category", true));
+    }
+
+    /**
+     * Change page paths to simple forms.
+     * 
+     * @param configuration
+     * @param rewriteRuleInbound
+     * @param rewriteRuleOutbound
+     */
     public static void contributeURLRewriter(
 	    OrderedConfiguration<URLRewriterRule> configuration,
 	    @InjectService("RewriteRuleInbound") RewriteRuleInbound rewriteRuleInbound,
@@ -95,6 +127,13 @@ public class AppModule {
 	return decorator.build(serviceInterface, delegate, serviceId);
     }
 
+    /**
+     * Override default configuration from hibernate.cfg.xml by custom
+     * configuration.
+     * 
+     * @param config
+     * @param hibernateConfigurer
+     */
     public static void contributeHibernateSessionSource(
 	    OrderedConfiguration<HibernateConfigurer> config,
 	    @InjectService("CustomHibernateConfigurer") CustomHibernateConfigurer hibernateConfigurer) {
