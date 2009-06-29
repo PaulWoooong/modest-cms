@@ -1,0 +1,6 @@
+<html t:type="layoutAdmin" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<t:block id="abstractPage">
+    <t:label for="abstractPage"/>
+    <t:select t:id="abstractPage" t:model="pages" />
+</t:block>
+</html>
