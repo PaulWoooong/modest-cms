@@ -13,6 +13,7 @@ import org.apache.tapestry5.services.BeanBlockContribution;
 import org.apache.tapestry5.services.Dispatcher;
 import org.apache.tapestry5.urlrewriter.URLRewriterRule;
 
+import cz.koroptev.mcms.entities.AbstractPage;
 import cz.koroptev.mcms.entities.Category;
 import cz.koroptev.mcms.services.hibernate.ArticleFormServiceImpl;
 import cz.koroptev.mcms.services.hibernate.ArticleServiceImpl;
@@ -72,6 +73,7 @@ public class AppModule {
     public static void contributeDefaultDataTypeAnalyzer(
 	    MappedConfiguration<Class<? extends Object>, String> configuration) {
 	configuration.add(Category.class, "category");
+	configuration.add(AbstractPage.class, "abstractPage");
     }
 
     /**
@@ -82,7 +84,9 @@ public class AppModule {
     public static void contributeBeanBlockSource(
 	    Configuration<BeanBlockContribution> configuration) {
 	configuration.add(new BeanBlockContribution("category",
-		"CategoryEditBlocks", "category", true));
+		"CategoryEditBlock", "category", true));
+	configuration.add(new BeanBlockContribution("abstractPage",
+		"AbstractPageEditBlock", "abstractPage", true));
     }
 
     /**
