@@ -52,7 +52,6 @@ public class AddArticle {
     public BeanModel<Article> getModel() {
 	BeanModel<Article> model = beanModelSource.createDisplayModel(
 		Article.class, resources.getMessages());
-	model.add("idCategory", null);
 	model.exclude("pageType","imageExists");
 	return model;
     }
