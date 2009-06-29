@@ -36,9 +36,9 @@ public class Categories {
 	return categoryService.getAll();
     }
 
-    public BeanModel getModel() {
-	BeanModel model = beanModelSource.createDisplayModel(Category.class,
-		resources.getMessages());
+    public BeanModel<Category> getModel() {
+	BeanModel<Category> model = beanModelSource.createDisplayModel(
+		Category.class, resources.getMessages());
 	model.add("delete", null);
 	return model;
     }
