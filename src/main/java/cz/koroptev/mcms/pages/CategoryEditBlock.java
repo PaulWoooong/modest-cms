@@ -38,7 +38,7 @@ public class CategoryEditBlock {
 	    "label=prop:context.label", "translate=prop:categoryTranslator",
 	    "validate=prop:categoryValidator", "encoder=prop:categoryEncoder",
 	    "clientId=prop:context.propertyId", "annotationProvider=context",
-	    "blankOption=never" })
+	    "blankOption=always","blankLabel=message:noCategory-label" })
     private Select category;
 
     public SelectModel getCategories() {
