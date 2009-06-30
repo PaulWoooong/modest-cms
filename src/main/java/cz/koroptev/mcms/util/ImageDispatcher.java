@@ -51,9 +51,9 @@ public class ImageDispatcher implements Dispatcher {
 	logger.info("inicializing Servlet Imager");
 	fileStore = new ImageFileStoreImpl();
 	fileStore.setRelativePath(configurationService
-		.getProperty("mcns.imageRelativePath"));
+		.getProperty("mcms.imageRelativePath"));
 	fileStore.setAbsolutePath(new File(configurationService
-		.getProperty("mcns.dataBasePath")).getAbsolutePath());
+		.getProperty("mcms.dataBasePath")).getAbsolutePath());
 	logger.debug("initilizing image dispatcher witch base path: ");
 	logger.debug(new File("./").getAbsolutePath());
 	logger.debug(new File("").getAbsolutePath());

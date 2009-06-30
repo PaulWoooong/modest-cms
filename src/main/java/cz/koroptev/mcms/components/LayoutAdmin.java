@@ -4,7 +4,8 @@ import org.apache.tapestry5.annotations.IncludeStylesheet;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.BaseURLSource;
 
-@IncludeStylesheet(value = { "context:css/site.css", "context:css/lightbox.css" })
+@IncludeStylesheet(value = { "context:css/site.css", "context:css/admin.css",
+	"context:css/lightbox.css" })
 public class LayoutAdmin {
 
     @Inject

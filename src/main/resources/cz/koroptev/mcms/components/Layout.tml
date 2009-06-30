@@ -3,10 +3,10 @@
         <title>${title}</title>
     </head>
     <body>
-	<script type="text/javascript" src="${base}/js/lightbox2/prototype.js"></script>
-	<script type="text/javascript" src="${base}/js/lightbox2/scriptaculous.js?load=effects,builder"></script>
-	<script type="text/javascript" src="${base}/js/lightbox2/lightbox.js"></script>
-   	<t:header />
+		<script type="text/javascript" src="${base}/js/lightbox2/prototype.js"></script>
+		<script type="text/javascript" src="${base}/js/lightbox2/scriptaculous.js?load=effects,builder"></script>
+		<script type="text/javascript" src="${base}/js/lightbox2/lightbox.js"></script>
+	   	<t:header />
     	<table id="main">
     		<tr>
     			<td colspan="2" id="header">

@@ -20,10 +20,20 @@
 		<t:loop source="menuItems" value="menuItem" index="count">
 			<td>
 				<t:if test="userSigned">
-					<t:actionlink t:id="moveLeft" context="menuItem.id"><img src="${asset:context:/img/1leftarrow.png}" /></t:actionlink>
+					<t:if test="movableLeft">
+						<t:actionlink t:id="moveLeft" context="menuItem.id"><img src="${asset:context:/img/1leftarrow.png}" /></t:actionlink>
+				    	<t:parameter name="else">
+				    		<img src="${asset:context:/img/1leftarrow.png}" />
+						</t:parameter>
+					</t:if>
 					<t:pagelink page="admin/editMenuItem" context="menuItem.id"><img src="${asset:context:/img/edit.png}" /></t:pagelink>
 					<t:pagelink page="admin/addMenuItem"><img src="${asset:context:/img/delete.png}" /></t:pagelink>
-					<t:actionlink t:id="moveRight" context="menuItem.id"><img src="${asset:context:/img/1rightarrow.png}" /></t:actionlink>
+					<t:if test="movableRight">
+						<t:actionlink t:id="moveRight" context="menuItem.id"><img src="${asset:context:/img/1rightarrow.png}" /></t:actionlink>
+				    	<t:parameter name="else">
+				    		<img src="${asset:context:/img/1rightarrow.png}" />
+				    	</t:parameter>
+					</t:if>
 				</t:if>
 			</td>			
 		</t:loop>	
