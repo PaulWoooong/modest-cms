@@ -2,15 +2,15 @@
 	<t:if test="userSigned">
 		<div class="right">
 			${userSession.user.email}
-			<t:actionlink t:id="signOut">Sign out</t:actionlink>
+			<t:actionlink t:id="signOut">${message:link-sign-out}</t:actionlink>
 		</div>
 		<div class="left">	
-			<t:pagelink page="index">Home</t:pagelink>
-			<t:pagelink page="admin/index">administration</t:pagelink>
+			<t:pagelink page="index">${message:link-home}</t:pagelink>
+			<t:pagelink page="admin/index">${message:link-admin}</t:pagelink>
 		</div>
 		<t:parameter name="else">
 			<div class="right">
-    	    	<t:pagelink page="admin/login">Login</t:pagelink>
+    	    	<t:pagelink page="admin/login">${message:link-login}</t:pagelink>
 			</div>
 		</t:parameter>
 	</t:if>

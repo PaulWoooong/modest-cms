@@ -13,7 +13,7 @@ import cz.koroptev.mcms.services.MenuItemService;
 public class Menu extends UserAwareComponent {
 
     private final static Logger logger = Logger.getLogger(Menu.class);
-    
+
     @Inject
     private MenuItemService menuItemService;
 
@@ -53,6 +53,14 @@ public class Menu extends UserAwareComponent {
 	logger.debug("Moving left");
 	menuItemService.moveLeft(idMenuItem);
 	return Index.class;
+    }
+
+    public boolean isMovableLeft() {
+	return count > 0;
+    }
+
+    public boolean isMovableRight() {
+	return count < getMenuItems().size() - 1;
     }
 
     /**
