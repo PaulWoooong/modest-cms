@@ -62,9 +62,9 @@ public class ImageDispatcher implements Dispatcher {
 	logger.debug(new File("WEB-INF/file-store").getAbsolutePath());
 	logger.debug("super: "
 		+ new File(configurationService
-			.getProperty("mcns.dataBasePath")).getAbsolutePath());
+			.getProperty("mcms.dataBasePath")).getAbsolutePath());
 	logger.debug("pokus: "
-		+ configurationService.getProperty("mcns.imageRelativePath"));
+		+ configurationService.getProperty("mcms.imageRelativePath"));
 	fileStore.setImageResizer(new ImageResizerImpl());
 	ServiceProvider.setImageFileStore(fileStore);
 	try {

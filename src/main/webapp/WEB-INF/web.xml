@@ -63,12 +63,12 @@
 		custom application configuration, configuration here can be override by system property.
 	-->
 	<context-param>
-		<param-name>mcns.dataBasePath</param-name>
+		<param-name>mcms.dataBasePath</param-name>
 		<!-- if it's empty project root will be taken -->
 		<param-value>src/main/webapp</param-value>
 	</context-param>
 	<context-param>
-		<param-name>mcns.imageRelativePath</param-name>
+		<param-name>mcms.imageRelativePath</param-name>
 		<param-value>WEB-INF/file-store</param-value>
 	</context-param>
 	
