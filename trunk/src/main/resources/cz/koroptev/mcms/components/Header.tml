@@ -13,5 +13,6 @@
     	    	<t:pagelink page="admin/login">${message:link-login}</t:pagelink>
 			</div>
 		</t:parameter>
+		<!-- t:localeSelector / -->
 	</t:if>
 </div>

@@ -9,17 +9,23 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import cz.koroptev.mcms.entities.AbstractPage;
+import cz.koroptev.mcms.services.LocaleService;
 import cz.koroptev.mcms.services.PathService;
 import cz.koroptev.mcms.util.ScmException;
 
 public class PathServiceImpl implements PathService {
 
+    private final static Logger logger = Logger
+	    .getLogger(PathServiceImpl.class);
+    
     @Inject
     private Session session;
 
-    Logger logger = Logger.getLogger(PathServiceImpl.class);
+    @Inject
+    private LocaleService localeService;
 
-    public AbstractPage getByPath(String path) {
+    public AbstractPage getByPath(final String pathOriginal) {
+	final String path = localeService.removeLocale(pathOriginal);
 	AbstractPage page = getByPathSimple(path);
 	if (page == null) {
 	    if (path.length() == 0) {
