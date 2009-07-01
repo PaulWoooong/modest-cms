@@ -34,6 +34,10 @@
 		<param-name>tapestry.hibernate.default-configuration</param-name>
 		<param-value>true</param-value>
 	</context-param>
+	<context-param>
+		<param-name>tapestry.supported-locales</param-name>
+		<param-value>en,cs</param-value>
+	</context-param>
 	
 	<!-- 
 		hibernate application configuration

@@ -1,0 +1,6 @@
+<div class="localeSelector" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	<t:form t:id="switcher">
+		<img src="${asset:images/flag.gif}"/>
+	    <t:select t:id="locale" t:model="locales" onchange="this.form.submit()"/>
+    </t:form>
+</div>

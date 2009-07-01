@@ -22,6 +22,7 @@ import cz.koroptev.mcms.services.hibernate.ConfigurationServiceImpl;
 import cz.koroptev.mcms.services.hibernate.CustomHibernateConfigurer;
 import cz.koroptev.mcms.services.hibernate.CustomHibernateConfigurerImpl;
 import cz.koroptev.mcms.services.hibernate.ImageServiceImpl;
+import cz.koroptev.mcms.services.hibernate.LocaleServiceImpl;
 import cz.koroptev.mcms.services.hibernate.MenuItemServiceImpl;
 import cz.koroptev.mcms.services.hibernate.PageCategoryServiceImpl;
 import cz.koroptev.mcms.services.hibernate.PathServiceImpl;
@@ -54,6 +55,7 @@ public class AppModule {
 		CustomHibernateConfigurerImpl.class);
 	binder.bind(ImageDispatcher.class).withId("ImageDispatcher");
 	binder.bind(ImageService.class, ImageServiceImpl.class);
+	binder.bind(LocaleService.class, LocaleServiceImpl.class);
 	binder.bind(MenuItemService.class, MenuItemServiceImpl.class);
 	binder.bind(PageCategoryService.class, PageCategoryServiceImpl.class);
 	binder.bind(PathService.class, PathServiceImpl.class);

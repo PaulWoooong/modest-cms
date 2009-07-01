@@ -10,6 +10,7 @@ import org.apache.tapestry5.urlrewriter.SimpleRequestWrapper;
 import org.apache.tapestry5.urlrewriter.URLRewriteContext;
 
 import cz.koroptev.mcms.entities.AbstractPage;
+import cz.koroptev.mcms.services.LocaleService;
 import cz.koroptev.mcms.services.PathService;
 import cz.koroptev.mcms.services.RewriteRuleInbound;
 
@@ -22,6 +23,9 @@ public class RewriteRuleInboundImpl implements RewriteRuleInbound {
 
     @Inject
     private PathService pathService;
+
+    @Inject
+    private LocaleService localeService;
 
     public RewriteRuleInboundImpl() {
 	logger.debug("bleee 3");
@@ -50,13 +54,16 @@ public class RewriteRuleInboundImpl implements RewriteRuleInbound {
     }
 
     public Request process(Request request, URLRewriteContext context) {
-	final String path = request.getPath();
+	final String originalPath = request.getPath();
+	final String path = localeService.removeLocale(originalPath);
 	if ("/".equals(path)) {
 	    logger.debug("changing (2) path: " + path);
-	    request = new SimpleRequestWrapper(request, "/index/index");
+	    request = new SimpleRequestWrapper(request, localeService
+		    .applyLocale("/index/index", request));
 	} else if ("/index".equals(path)) {
 	    logger.debug("chnaging (4): " + path);
-	    request = new SimpleRequestWrapper(request, "/index/index");
+	    request = new SimpleRequestWrapper(request, localeService
+		    .applyLocale("/index/index", request));
 	} else if (!isReservedPath(path)) {
 	    AbstractPage abstractPage = pathService.getByPath(path);
 	    if (abstractPage == null) {
@@ -65,14 +72,16 @@ public class RewriteRuleInboundImpl implements RewriteRuleInbound {
 	    } else {
 		switch (abstractPage.getPageType()) {
 		case AbstractPage.PAGE_TYPE_WELCOME:
-		    request = new SimpleRequestWrapper(request, "/index" + path);
+		    request = new SimpleRequestWrapper(request, localeService
+			    .applyLocale("/index" + path, request));
 		    break;
 		case AbstractPage.PAGE_TYPE_ARTICLE:
-		    request = new SimpleRequestWrapper(request, "/articlePage"
-			    + path);
+		    request = new SimpleRequestWrapper(request, localeService
+			    .applyLocale("/articlePage" + path, request));
 		    break;
 		case AbstractPage.PAGE_TYPE_CATEGORY:
-		    request = new SimpleRequestWrapper(request, "/cat" + path);
+		    request = new SimpleRequestWrapper(request, localeService
+			    .applyLocale("/cat" + path, request));
 		    break;
 		default:
 		    logger.error("Page didn't have valid type");

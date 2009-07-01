@@ -18,7 +18,6 @@ import org.apache.tapestry5.internal.SelectModelImpl;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PropertyEditContext;
 
-import cz.koroptev.mcms.entities.AbstractPage;
 import cz.koroptev.mcms.entities.Category;
 import cz.koroptev.mcms.services.CategoryService;
 
@@ -38,7 +37,7 @@ public class CategoryEditBlock {
 	    "label=prop:context.label", "translate=prop:categoryTranslator",
 	    "validate=prop:categoryValidator", "encoder=prop:categoryEncoder",
 	    "clientId=prop:context.propertyId", "annotationProvider=context",
-	    "blankOption=always","blankLabel=message:noCategory-label" })
+	    "blankOption=always", "blankLabel=message:noCategory-label" })
     private Select category;
 
     public SelectModel getCategories() {
