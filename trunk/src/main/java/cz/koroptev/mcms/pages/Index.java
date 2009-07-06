@@ -43,6 +43,10 @@ public class Index extends UserAwareComponent {
      */
     private String pageUrl;
 
+    void pageAttached() {
+	System.out.println("cus lidi");
+    }
+
     void onActivate(final String pageUrl) {
 	this.pageUrl = pageUrl;
 	logger.debug("pageUrl: " + pageUrl);
@@ -73,6 +77,10 @@ public class Index extends UserAwareComponent {
      * @return the welcomePage
      */
     public WelcomePage getWelcomePage() {
+	if (welcomePage == null) {
+	    AbstractPage page = pathService.getByPath("index");
+	    welcomePage = welcomePageService.getById(page.getId());
+	}
 	return welcomePage;
     }
 
