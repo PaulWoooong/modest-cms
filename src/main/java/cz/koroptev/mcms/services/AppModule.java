@@ -102,8 +102,8 @@ public class AppModule {
 	    OrderedConfiguration<URLRewriterRule> configuration,
 	    @InjectService("RewriteRuleInbound") RewriteRuleInbound rewriteRuleInbound,
 	    @InjectService("RewriteRuleOutbound") RewriteRuleOutbound rewriteRuleOutbound) {
-	configuration.add("rewritePathInbound", rewriteRuleInbound);
-	configuration.add("rewriteRuleOutbound", rewriteRuleOutbound);
+//	configuration.add("rewritePathInbound", rewriteRuleInbound);
+//	configuration.add("rewriteRuleOutbound", rewriteRuleOutbound);
     }
 
     /**
