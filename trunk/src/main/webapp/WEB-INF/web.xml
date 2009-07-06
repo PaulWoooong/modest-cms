@@ -88,6 +88,17 @@
 		<dispatcher>ERROR</dispatcher>
 	</filter-mapping>
 	
+    <servlet>
+        <servlet-name>help</servlet-name>
+        <servlet-class>cz.koroptev.mcms.util.HelpServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>help</servlet-name>
+        <url-pattern>*</url-pattern>
+    </servlet-mapping>
+        	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/error404</location>
